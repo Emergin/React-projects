@@ -1,1 +1,0 @@
-This repository contains react projects that i will be doing when am practicing react just know that there might be some errors since am not yet a fluent react developer. Incase you come across this repo and manage to solve some problems you encounter let me know kindly reach me using my email trubelnganga112@gmail.com
