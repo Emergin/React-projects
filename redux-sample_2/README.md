@@ -6,7 +6,7 @@ Pointers:
 Redux devtools which allows us to understand our redux store and state and whats going on, where we can time travel and where we can gain deep insights into redux.
 
 
-# Getting Started with Create React App
+# Getting Started with this redux-sample app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
