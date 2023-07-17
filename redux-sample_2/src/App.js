@@ -1,7 +1,7 @@
 import Cart from "./components/Cart/Cart";
 import Layout from "./components/Layout/Layout";
 import Products from "./components/Shop/Products";
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
 // import { uiActions } from "./store/ui-slice";
@@ -29,7 +29,11 @@ function App() {
       return;
     }
 
-    dispatch(sendCartData(cart));
+    if(cart.changed) {
+      dispatch(sendCartData(cart));
+    }
+
+   
     // const sendCartData = async () => {
     //   dispatch(
     //     uiActions.showNotification({

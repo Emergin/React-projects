@@ -1,10 +1,14 @@
+In this project its all about working with redux and more importantly i learned about redux, side-effects and asynchronous code the different places you can put the asynchronous code and side effects components or action creators in action.
+
+Pointers:
+1. You should prefer reducers for data transformations and only put side-effects or async code into your components or action creators.
+
+Redux devtools which allows us to understand our redux store and state and whats going on, where we can time travel and where we can gain deep insights into redux.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
