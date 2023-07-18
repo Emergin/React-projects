@@ -33,26 +33,6 @@ function App() {
       dispatch(sendCartData(cart));
     }
 
-   
-    // const sendCartData = async () => {
-    //   dispatch(
-    //     uiActions.showNotification({
-    //       status: "pending",
-    //       title: "sending...",
-    //       message: "sending cart data",
-    //     })
-    //   );
-
-    // };
-
-    // if (isInitial) {
-    //   isInitial = false;
-    //   return;
-    // }
-
-    // sendCartData().catch((error) => {
-
-    // });
   }, [cart, dispatch]);
 
   return (
