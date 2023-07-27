@@ -44,6 +44,21 @@ const AuthForm = () => {
     })
       .then((res) => {
         setIsLoading(false);
+      fetch(
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API-KEY]",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: enteredEmail,
+            password: enterePassword,
+            returnSecureToken: true,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      ).then((res) => {
+        setIsLoading(false)
         if (res.ok) {
           return res.json();
         } else {
@@ -63,7 +78,7 @@ const AuthForm = () => {
       .catch((err) => {
         alert(err.message);
       });
-  };
+  });
 
   return (
     <section className={classes.auth}>
