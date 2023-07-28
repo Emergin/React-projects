@@ -1,13 +1,14 @@
 import { useState, useRef, useContext } from "react";
-
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import classes from "./AuthForm.module.css";
 import AuthContext from "../../store/auth-context";
 
 const AuthForm = () => {
+  const history = useHistory();
   const emailInputRef = useRef();
   const passswordInputRef = useRef();
 
-   const authCtx = useContext(AuthContext)
+  const authCtx = useContext(AuthContext);
 
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -44,21 +45,6 @@ const AuthForm = () => {
     })
       .then((res) => {
         setIsLoading(false);
-      fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API-KEY]",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email: enteredEmail,
-            password: enterePassword,
-            returnSecureToken: true,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      ).then((res) => {
-        setIsLoading(false)
         if (res.ok) {
           return res.json();
         } else {
@@ -73,12 +59,16 @@ const AuthForm = () => {
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken)
+        const expirationTime = new Date(
+          new Date().getTime() + +data.expiresIn * 1000
+        );
+        authCtx.login(data.idToken, expirationTime.toISOString());
+        history.replace("/");
       })
       .catch((err) => {
         alert(err.message);
       });
-  });
+  };
 
   return (
     <section className={classes.auth}>
